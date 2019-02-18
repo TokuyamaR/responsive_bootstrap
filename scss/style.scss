@@ -52,38 +52,6 @@ $space_3l: 40px;
 
 $font-family_corp: 'Amatic SC', cursive;
 
-// メディアクエリのブレークポイント設定
-// のちに設定するので今は飛ばす
-
-// マップ型変数を使うと便利
-$breakpoints: (
-        'sm': 'screen and (max-width: 414px)',
-        'md': 'screen and (max-width: 768px)',
-        'lg': 'screen and (max-width: 1000px)',
-        'xl': 'screen and (max-width: 1200px)',
-) !default;
-
-// ==============================
-// mixin
-// ==============================
-// @mixinは、cssで関数のような物を作れる
-// https://www.webcreatorbox.com/tech/sass-mixin
-// map-get()の第一引数に変数名、第二引数にマップ型のキーを渡すとマップ型の値が返る
-// #{}は「インターポーレーション」といって、演算できないまたは変数が使えない箇所でも可能にする。calcなどでよく使用される
-// http://book.scss.jp/code/c4/08.html
-
-@mixin sm($breakpoint: sm) {
-  @media #{map-get($breakpoints, $breakpoint)}{
-    @content;
-  }
-}
-
-@mixin md($breakpoint: md) {
-  @media #{map_get($breakpoints, $breakpoint)}{
-    @content;
-  }
-}
-
 // ==============================
 // base
 // ==============================
@@ -320,7 +288,7 @@ img {
 }
 
 // ==================================
-// container
+// container->section-top
 // ==================================
 .container {
   width: $site-width;
