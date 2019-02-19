@@ -50,34 +50,34 @@
         <counts>
           <entry key="html" value="17" />
           <entry key="js" value="81" />
-          <entry key="scss" value="300" />
+          <entry key="scss" value="351" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="17" />
           <entry key="JavaScript" value="81" />
-          <entry key="SCSS" value="300" />
+          <entry key="SCSS" value="351" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1770">
+            <state relative-caret-position="270">
               <caret line="171" lean-forward="true" selection-start-line="171" selection-end-line="171" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scss/style.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="394" column="1" selection-start-line="394" selection-start-column="1" selection-end-line="394" selection-end-column="1" />
+            <state relative-caret-position="32">
+              <caret line="370" column="35" selection-start-line="370" selection-start-column="35" selection-end-line="370" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -89,6 +89,7 @@
       <find>light</find>
       <find>js-toggle</find>
       <find>container-title</find>
+      <find>md</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -206,11 +207,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4982000" />
+    <option name="totallyTimeSpent" value="5568000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="732" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.25072464" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -282,17 +282,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/scss/style.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1770">
-          <caret line="171" lean-forward="true" selection-start-line="171" selection-end-line="171" />
+        <state relative-caret-position="32">
+          <caret line="370" column="35" selection-start-line="370" selection-start-column="35" selection-end-line="370" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scss/style.scss">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="394" column="1" selection-start-line="394" selection-start-column="1" selection-end-line="394" selection-end-column="1" />
+        <state relative-caret-position="270">
+          <caret line="171" lean-forward="true" selection-start-line="171" selection-end-line="171" />
         </state>
       </provider>
     </entry>
