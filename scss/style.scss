@@ -33,8 +33,6 @@ $color_corp: #e3a8b1;
 $font-color_sub1: #b6a489;
 $background-color_default: #f8f7fc;
 
-$site-width: 980px;
-
 $font-size_s: 12px;
 $font-size_m: 14px;
 $font-size_default: 16px;
@@ -52,37 +50,7 @@ $space_3l: 40px;
 
 $font-family_corp: 'Amatic SC', cursive;
 
-// メディアクエリのブレークポイント設定
-// のちに設定するので今は飛ばす
-
-// マップ型変数を使うと便利
-$breakpoints: (
-        'sm': 'screen and (max-width: 414px)',
-        'md': 'screen and (max-width: 768px)',
-        'lg': 'screen and (max-width: 1000px)',
-        'xl': 'screen and (max-width: 1200px)',
-) !default;
-
-// ==============================
-// mixin
-// ==============================
-// @mixinは、cssで関数のような物を作れる
-// https://www.webcreatorbox.com/tech/sass-mixin
-// map-get()の第一引数に変数名、第二引数にマップ型のキーを渡すとマップ型の値が返る
-// #{}は「インターポーレーション」といって、演算できないまたは変数が使えない箇所でも可能にする。calcなどでよく使用される
-// http://book.scss.jp/code/c4/08.html
-
-@mixin sm($breakpoint: sm) {
-  @media #{map-get($breakpoints, $breakpoint)}{
-    @content;
-  }
-}
-
-@mixin md($breakpoint: md) {
-  @media #{map_get($breakpoints, $breakpoint)}{
-    @content;
-  }
-}
+// メディアクエリ設定は不要のため削除
 
 // ==============================
 // base
@@ -137,12 +105,7 @@ img {
     transition: .3s;
     background: rgba(255, 255, 255, 0.9);
   }
-  @include sm() {
-    height: 60px;
-    padding-right: $space_l;
-    padding-left: $space_l;
-  }
-  @include md() {
+  @include media-breakpoint-down(xs) {
     height: 60px;
     padding-right: $space_l;
     padding-left: $space_l;
@@ -158,7 +121,7 @@ img {
 // menu
 // =============================
 .nav-menu {
-  @include sm() { // Todo:リファクタ必要（PCで修正が入ることを想定して、includeはクラスの中に記載する)->Done
+  @include media-breakpoint-down(xs) { // Todo:リファクタ必要（PCで修正が入ることを想定して、includeはクラスの中に記載する)->Done
     display: block;
     position: absolute;
     top: 0;
@@ -177,7 +140,7 @@ img {
 }
 
 .nav-menu {
-  @include md() {
+  @include media-breakpoint-down(md) {
     display: block;
     position: absolute;
     top: 0;
@@ -206,7 +169,7 @@ img {
   &-link {
     -webkit-font-smoothing: initial;
   }
-  @include sm() {
+  @include media-breakpoint-down(xs) {
     display: block;
     font-size: $font-size_xxl;
     &-item {
@@ -219,7 +182,7 @@ img {
       text-align: center;
     }
   }
-  @include md() {
+  @include media-breakpoint-down(md) {
     display: block;
     font-size: $font-size_xxl;
     &-item {
@@ -238,10 +201,10 @@ img {
 // ハンバーガーメニュー
 .menu-trigger {
   display: none;
-  @include sm() {
+  @include media-breakpoint-down(xs) {
     display: inline-block;
   }
-  @include md() {
+  @include media-breakpoint-down(md) {
     display: inline-block;
   }
   transition: all .4s;
@@ -301,71 +264,50 @@ img {
     font-family: $font-family_corp;
     color: #fff;
     text-shadow: 0 0 20px rgba(227, 123, 137, .4), 0 0 50px rgba(0, 0, 0, .8);
-    @include sm() {
+    @include media-breakpoint-down(xs) {
       text-align: center;
     }
-    @include md() {
+    @include media-breakpoint-down(md) {
       text-align: center;
     }
   }
   br {
     display: none;
-    @include sm {
+    @include media-breakpoint-down(xs) {
       display: block;
     }
-    @include md {
+    @include media-breakpoint-down(md) {
       display: block;
     }
   }
 }
 
 // ==================================
-// container
+// section-top
 // ==================================
-.container {
-  width: $site-width;
-  @include sm() {
-    width: 100%;
-  }
-  @include md() {
-    width: 100%;
-  }
-  margin-left: auto;
-  margin-right: auto;
+.section-top {
   padding-top: 80px;
   padding-bottom: 120px;
-  &-fruid {
-    width: 100%;
-  }
+
   &-title {
     font-family: $font-family_corp;
     text-align: center;
     font-size: $font-size_3l;
     margin-bottom: $space_3l;
-    @include sm() {
+    @include media-breakpoint-down(xs) {
       width: 70%;
       margin-left: auto;
       margin-right: auto;
     }
-    @include md() {
+    @include media-breakpoint-down(md) {
       width: 70%;
       margin-left: auto;
       margin-right: auto;
-    }
-  }
-  &-body {
-    @include sm() {
-      padding-left: $space_l;
-      padding-right: $space_l;
-    }
-    @include md() {
-      padding-left: $space_l;
-      padding-right: $space_l;
     }
   }
   &-ornament {
-    .container-title {
-      &-span { //Todo: リファクタ必要(span以外を使うことも考えてclass名で指定すること)->Done
+    .section-top-title {
+      span { //Todo: リファクタ必要(span以外を使うことも考えてclass名で指定すること)->Done
         display: inline-block;
         background: #fff;
         padding: 0 10px;
@@ -395,39 +337,13 @@ img {
 }
 
 // ==================================
-// container
-// ==================================
-.news {
-  width: 70%;
-  height: 60px;
-  overflow: scroll;
-  margin: 0 auto;
-  border-radius: 5px;
-  background: $background-color_default; //Todo:リファクタ必要(複数箇所で使いまわしているため、変数にまとめる)->Done
-  padding: $space_l $space_xl;
-  &-item {
-    margin-bottom: $space_s;
-  }
-  &-date {
-    color: $font-color_date;
-    font-weight: bold;
-    font-family: $font-family_corp;
-    -webkit-font-smoothing: initial;
-    margin-right: $space_m;
-  }
-  &-title {
-    font-size: $font-size_m;
-  }
-}
-
-// ==================================
 // panel
 // ==================================
 .panel {
-  box-sizing: border-box;
-  background: #fff;
+  width: 100%;
   position: relative;
   transition: .5s;
+  margin-bottom: $space_l;
   &-hover {
     display: inline-block;
     transition: .5s;
@@ -436,154 +352,6 @@ img {
       box-shadow: 0 0 10px rgba(0, 0, 0, .3);
       transition: .5s;
     }
-  }
-  &-border {
-    border-radius: 5px;
-    border: 5px solid #f6f5f4;
-  }
-  &-head, &-foot {
-    padding: $space_m;
-  }
-  &-head {
-    text-align: center;
-    color: $color_corp;
-  }
-
-  &-active {
-    border: 5px solid $color_corp;
-  }
-  &-badge {
-    background: #e37b89;
-    color: #fff;
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    border-radius: 60px;
-    width: 60px;
-    height: 60px;
-    text-align: center;
-    line-height: 1.3em;
-    padding: 15px 0;
-    box-sizing: border-box;
-    font-size: $font-size_s;
-    transform: rotate(15deg);
-    @include sm() {
-      top: -20px;
-      right: -13px;
-    }
-    @include md() {
-      top: -20px;
-      right: -13px;
-    }
-  }
-  &-group {
-    margin-right: -$space_l;
-    &-float {
-      overflow: hidden;
-    }
-    &-flex {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    .panel {
-      float: left;
-      margin-right: $space_l;
-      margin-bottom: $space_l;
-      box-sizing: border-box;
-    }
-  }
-  &-staff {
-    width: calc(25% - #{$space_l});
-    @include sm() {
-      width: calc(50% - #{$space_l});
-    }
-    @include md() {
-      width: calc(50% - #{$space_l});
-    }
-  }
-  &-cource {
-    width: calc(33.3% - #{$space_l});
-    @include sm() {
-      width: 100%;
-      margin: 0 auto $space_l auto;
-    }
-    @include md() {
-      width: 100%;
-      margin: 0 auto $space_l auto;
-    }
-  }
-}
-
-// ==================================
-// form
-// ==================================
-.form {
-  width: 100%;
-  &-m {
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-    @include sm() {
-      width: 100%;
-    }
-    @include md() {
-      width: 100%;
-    }
-  }
-}
-
-.input {
-  display: block;
-  margin-bottom: $space_m;
-  border: 3px solid #f6f5f4;
-  border-radius: 4px;
-  outline: none;
-  height: 60px;
-  font-size: $font-size_l;
-  color: $font-color_default;
-  box-sizing: border-box;
-  &-l {
-    padding: 5px 10px;
-    width: 100%;
-  }
-  &:focus { //擬似要素の一種で、要素がフォーカスされた際のCSS
-    border: 3px solid $color_corp;
-  }
-  &-textarea {
-    height: 200px;
-  }
-}
-
-::placeholder { // form要素のplaceholderへのCSS
-  color: #ccc;
-}
-
-// ==================================
-// btn
-// ==================================
-.btn {
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  box-sizing: border-box;
-  transition: .3s;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  &:hover {
-    transform: translateY(-3px);
-    transition: .3s;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  }
-  &-corp {
-    // グラデーション使用（参考サイト：https://uigradients.com/）
-    color: #fff;
-    background: #ee9ca7; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #ffdde1, #ee9ca7); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #ffdde1, #ee9ca7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  }
-  &-l {
-    padding: $space_l $space-xxl;
-    width: 100%;
-    font-size: $font-size_l;
   }
 }
 
@@ -597,10 +365,10 @@ img {
   align-items: center;
   justify-content: center;
   height: 80px;
-  @include sm() {
+  @include media-breakpoint-down(xs) {
     font-size: $font-size_s;
   }
-  @include md() {
+  @include media-breakpoint-down(md) {
     font-size: $font-size_m;
   }
 }
@@ -625,6 +393,3 @@ img {
 .ft-l {
   font-size: $font-size_xl;
 }
-
-// Todo:リファクタその１：SP（スマホ）でハンバーガーメニューを開いて、メニューをクリックした際に自動でメニューが閉じる様にしてみよう！->Done
-// Todo:リファクタその２：iPad（768px）用のレイアウトも作成してみよう！（メニューボタンを非表示。.containerの横幅を100%に。右に出てしまう余白はなぜだろう？）
